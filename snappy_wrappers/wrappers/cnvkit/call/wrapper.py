@@ -11,7 +11,7 @@ config = snakemake.config["step_config"][step]["cnvkit"]
 
 center = config["center"]
 if center:
-    if center in set("mean", "median", "mode", "biweight"):
+    if center in ("mean", "median", "mode", "biweight"):
         center = " --center " + center
     else:
         center = " --center-at" + center
