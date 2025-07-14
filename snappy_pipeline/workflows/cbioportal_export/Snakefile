@@ -108,11 +108,6 @@ rule cbioportal_export_concatenate_maf:
         wf.get_output_files("cbioportal_mutations", "run"),
     shell:
         r"""
-        cat \
-        <( head -n 1 {input[0]} ) \
-        <( tail -q -n +2 {input}) \
-        | (if [[ -n "{exclude_flag}" ]] ; then grep -v {exclude_flag} ; else cat ; fi) \
-        > {output}
         """
 
 
