@@ -168,7 +168,7 @@ class GeneExpressionReportWorkflow(BaseStep):
                 GeneExpressionReportAggreateFeaturecounts,
                 GeneExpressionReportComputeSignatures,
                 GeneExpressionReportRankExpression,
-                GeneExpressionReportPlotGeneDistribution,
+                # GeneExpressionReportPlotGeneDistribution,
                 LinkOutStepPart,
             )
         )
@@ -189,7 +189,8 @@ class GeneExpressionReportWorkflow(BaseStep):
                         if ngs_library is None:
                             break
 
-                        exts = EXT_VALUES + (".pdf", ".genes.pdf")
+                        exts = EXT_VALUES + (".pdf", ".pdf")
+                        # exts = EXT_VALUES + (".pdf", ".genes.pdf")
                         yield from expand(
                             os.path.join("output", name_pattern, "out", name_pattern + "{ext}"),
                             ngs_library=ngs_library,

@@ -102,16 +102,16 @@ rule gene_expression_report_compute_signatures:
 
 
 # All samples together, plot gene expression in cohort context
-rule gene_expression_report_plot_expression_distribution:
-    input:
-        **wf.get_input_files("plot_expression_distribution", "run"),
-    output:
-        **wf.get_output_files("plot_expression_distribution", "run"),
-    threads: wf.get_resource("plot_expression_distribution", "run", "threads")
-    resources:
-        time=wf.get_resource("plot_expression_distribution", "run", "time"),
-        memory=wf.get_resource("plot_expression_distribution", "run", "memory"),
-        partition=wf.get_resource("plot_expression_distribution", "run", "partition"),
-        tmpdir=wf.get_resource("plot_expression_distribution", "run", "tmpdir"),
-    wrapper:
-        wf.wrapper_path("cbioportal/plot_expression_distribution")
+# rule gene_expression_report_plot_expression_distribution:
+#     input:
+#         **wf.get_input_files("plot_expression_distribution", "run"),
+#     output:
+#         **wf.get_output_files("plot_expression_distribution", "run"),
+#     threads: wf.get_resource("plot_expression_distribution", "run", "threads")
+#     resources:
+#         time=wf.get_resource("plot_expression_distribution", "run", "time"),
+#         memory=wf.get_resource("plot_expression_distribution", "run", "memory"),
+#         partition=wf.get_resource("plot_expression_distribution", "run", "partition"),
+#         tmpdir=wf.get_resource("plot_expression_distribution", "run", "tmpdir"),
+#     wrapper:
+#         wf.wrapper_path("cbioportal/plot_expression_distribution")
