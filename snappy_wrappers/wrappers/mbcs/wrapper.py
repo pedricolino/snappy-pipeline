@@ -157,7 +157,7 @@ if mapper_config["trim_adapters"]:
 cmd += (
     "            | {mapper} mem \\\n"
     "                {indices} \\\n"
-    "                -R '@RG\tID:{{name}}\tSM:{sample_name}\tPL:ILLUMINA' \\\n"
+    "                -R '@RG\\tID:{{name}}\\tSM:{sample_name}\\tPL:ILLUMINA'\\\n"
     "                -p {extra_args} -t {threads} /dev/stdin \\\n"
 ).format(
     mapper=mapper,
@@ -358,18 +358,18 @@ cp $(dirname {__file__})/environment.yaml {snakemake.log.env_yaml}
 md5sum {snakemake.log.env_yaml} >{snakemake.log.env_yaml_md5}
 
 # Concatenate all log files into main log
-jobid=$(ls {tempdir}/slurm_log)
-fns=$(ls -tr {tempdir}/slurm_log/$jobid/*.log)
-ls -al $fns
-for fn in $fns
-do
-    f=$(basename $fn)
-    echo "# ==============================================================" >> {snakemake.log.log}
-    echo "# Log from \"$f\"" >> {snakemake.log.log}
-    echo "# ==============================================================" >> {snakemake.log.log}
-    cat $fn >> {snakemake.log.log}
-done
-md5sum {snakemake.log.log} > {snakemake.log.log_md5}
+# jobid=$(ls {tempdir}/slurm_log) # results in empty string
+# fns=$(ls -tr {tempdir}/slurm_log/$jobid/*.log)
+# ls -al $fns
+# for fn in $fns
+# do
+#     f=$(basename $fn)
+#     echo "# ==============================================================" >> {snakemake.log.log}
+#     echo "# Log from \"$f\"" >> {snakemake.log.log}
+#     echo "# ==============================================================" >> {snakemake.log.log}
+#     cat $fn >> {snakemake.log.log}
+# done
+# md5sum {snakemake.log.log} > {snakemake.log.log_md5}
 
 # Copy BQSR table just in case (not on output)
 mv {tempdir}/bqsr.tbl $(dirname {snakemake.output.bam})
