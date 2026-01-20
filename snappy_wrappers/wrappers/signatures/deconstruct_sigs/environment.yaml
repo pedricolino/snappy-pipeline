@@ -5,6 +5,6 @@ channels:
 dependencies:
   - r-base==4.3
   - r-tidyverse==2.0.0
-  - r-deconstructsigs==1.9.0
-  - bioconductor-bsgenome.hsapiens.ucsc.hg19==1.4.3
+  - r-deconstructsigs==1.9.0 # requires pkg below
+  - bioconductor-bsgenome.hsapiens.ucsc.hg19==1.4.3 # fails
   - openblas==0.3.26
