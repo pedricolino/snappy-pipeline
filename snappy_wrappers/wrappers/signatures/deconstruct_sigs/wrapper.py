@@ -41,7 +41,9 @@ sigs.input = mut.to.sigs.input(mut.ref = m)
                                #bsg = BSgenome.Hsapiens.UCSC.hg38::Hsapiens)
 
 # FIX for new COSMIC database:  Load the COSMIC signatures file
-cosmic_sigs <- read.table('/data/cephfs-1/work/projects/crc-patients-treatment-and-relapse/ce05_time_course_3_arms/DNA_WES/snappy_pipeline/somatic_variant_signatures/COSMIC_v3.4_SBS_GRCh37_transposed.txt',
+# file_path='/data/cephfs-1/work/projects/crc-patients-treatment-and-relapse/pipeline_pdo_correct_filtration/resources/COSMIC_v3.5_SBS_GRCh37.txt'
+file_path='/data/cephfs-1/work/projects/crc-patients-treatment-and-relapse/pipeline_pdo_correct_filtration/resources/COSMIC_v3.5_SBS_GRCh37_exome.txt'
+cosmic_sigs <- read.table(file_path,
                           header = TRUE,
                           sep = "\t",
                           row.names = 1,
@@ -50,7 +52,7 @@ cosmic_sigs <- read.table('/data/cephfs-1/work/projects/crc-patients-treatment-a
 output.sigs = whichSignatures(tumor.ref = sigs.input,
                               #signatures.ref = signatures.nature2013,
                               #signatures.ref = signatures.cosmic,
-                              signatures.ref = cosmic_sigs,
+                              signatures.ref = as.data.frame(t(cosmic_sigs)),
                               contexts.needed = TRUE,
                               #tri.counts.method = "exome2genome")
                               tri.counts.method = "default")
