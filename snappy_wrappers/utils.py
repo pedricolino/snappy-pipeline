@@ -115,7 +115,7 @@ def install_R_package(dest: str, name: str, repo: str):
 
     R_script = [
         install_cmd,
-        f"status <- try(find.package('{name}', lib.loc='{dest}', quiet=FALSE, verbose=TRUE))",
+        f"status <- try(find.package(sub('@.*', '', '{name}'), lib.loc='{dest}', quiet=FALSE, verbose=TRUE))",
         "status <- ifelse(is(status, 'try-error'), 1, 0)",
         "quit(save='no', status=status, runLast=FALSE)",
     ]
