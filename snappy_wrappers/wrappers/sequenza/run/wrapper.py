@@ -73,6 +73,7 @@ export VROOM_CONNECTION_SIZE=2000000000
 
 R --vanilla --slave << __EOF
 library(sequenza)
+print(packageVersion('sequenza'))
 
 # Follow sequenza documentation https://bitbucket.org/sequenzatools/sequenza/src/master/
 args <- list(file="{snakemake.input.seqz}", assembly="{config[assembly]}", chromosome.list={contigs})
