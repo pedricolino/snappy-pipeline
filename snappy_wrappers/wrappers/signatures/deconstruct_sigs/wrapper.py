@@ -42,7 +42,8 @@ sigs.input = mut.to.sigs.input(mut.ref = m)
 
 # FIX for new COSMIC database:  Load the COSMIC signatures file
 # file_path='/data/cephfs-1/work/projects/crc-patients-treatment-and-relapse/pipeline_pdo_correct_filtration/resources/COSMIC_v3.5_SBS_GRCh37.txt'
-file_path='/data/cephfs-1/work/projects/crc-patients-treatment-and-relapse/pipeline_pdo_correct_filtration/resources/COSMIC_v3.5_SBS_GRCh37_exome.txt'
+# file_path='/data/cephfs-1/work/projects/crc-patients-treatment-and-relapse/pipeline_pdo_correct_filtration/resources/COSMIC_v3.5_SBS_GRCh37_exome.txt'
+file_path='/data/cephfs-1/work/projects/crc-patients-treatment-and-relapse/most_pdos_snappy/resources/COSMIC_v3.6_SBS_GRCh37.txt'
 cosmic_sigs <- read.table(file_path,
                           header = TRUE,
                           sep = "\t",
